@@ -29,5 +29,10 @@ function Header() {
     header.appendChild(headerOne);
     header.appendChild(temp);
 
+// sources
+    date.textContent = "SMARCH 28, 2019";
+    headerOne.textContent = "Lambda Times";
+    temp.textContent = "98°";
+
     return header;
 }

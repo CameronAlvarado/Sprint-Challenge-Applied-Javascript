@@ -23,12 +23,13 @@ console.log(entryPoint2)
     .then( (response) => {
         console.log(response.data);
         console.log(response.data.topics)
-        response.data.topics.forEach(function() {
-            entryPoint2.appendChild(Tab(response.data.topics))
+        response.data.topics.forEach( (element) => {
+            console.log(element);
+            entryPoint2.appendChild(Tab(element))
         })
     });
 
-function Tab(obj) {
+function Tab(string) {
 // create elements
     const tab = document.createElement('div');
 
@@ -36,7 +37,7 @@ function Tab(obj) {
     tab.classList.add('tab');
 
 // sources
-    tab.textContent = "topic here";
+    tab.textContent = string;
 
 // append
 
