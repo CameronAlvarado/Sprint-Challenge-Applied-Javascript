@@ -17,3 +17,15 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+axios.get("https://lambda-times-backend.herokuapp.com/articles")
+.then( (response) => {
+    console.log(response.data);
+    console.log(response.data.articles)
+    console.log(response.data.articles.javascript)
+    console.log(response.data.articles.bootstrap)
+
+    // response.data.topics.forEach(function() {
+    //     entryPoint2.appendChild(Tab(response.data.articles))
+    })
+// });
