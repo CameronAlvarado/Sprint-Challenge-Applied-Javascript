@@ -17,3 +17,59 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+const entryPoint3 = document.querySelector('.cards-container')
+
+axios.get("https://lambda-times-backend.herokuapp.com/articles")
+.then( (response) => {
+    console.log(response.data);
+    console.log(response.data.articles);
+    let obj = response.data.articles;
+        obj.javascript.forEach( (element) => {
+            entryPoint3.appendChild(Cards(element))
+        })
+        obj.bootstrap.forEach( (element) => {
+            entryPoint3.appendChild(Cards(element))
+        })
+        obj.technology.forEach( (element) => {
+            entryPoint3.appendChild(Cards(element))
+        })
+        obj.jquery.forEach( (element) => {
+            entryPoint3.appendChild(Cards(element))
+        })
+        obj.node.forEach( (element) => {
+            entryPoint3.appendChild(Cards(element))
+        })
+      });
+
+
+function Cards(obj) {
+
+    // create elements
+    const card = document.createElement('div');
+    const headline = document.createElement('div');
+    const author = document.createElement('div');
+    const imgContain = document.createElement('div');
+    const img = document.createElement('img');
+    const nameBy = document.createElement('span');
+
+    // apply classes
+    card.classList.add('card');
+    headline.classList.add('headline');
+    author.classList.add('author');
+    imgContain.classList.add('img-container');
+
+    // sources
+    headline.textContent = obj.headline;
+    img.src = obj.authorPhoto;
+    nameBy.textContent = [`By ${obj.authorName}`];
+
+    // append
+    card.appendChild(headline);
+    card.appendChild(author);
+    author.appendChild(imgContain);
+    author.appendChild(nameBy);
+    imgContain.appendChild(img);
+
+    return card;
+}
